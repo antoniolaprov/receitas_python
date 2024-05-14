@@ -2,5 +2,4 @@
 
 FLUXOGRAMA / MANUAL DO USUARIO
 
-grupo
 
