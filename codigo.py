@@ -64,3 +64,4 @@ def main():
             print("Opção inválida. Digite um número de 1 a 9.")
 
 main()
+print('teste')
