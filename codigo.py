@@ -29,18 +29,17 @@ def sair():
 
 def main():
     while True:
-        print("Escolha uma opção:")
-        print("1 - Adicionar Receita")
-        print("2 - Visualizar Receitas")
-        print("3 - Atualizar Receitas")
-        print("4 - Excluir Receitas")
-        print("5 - Filtrar por País")
-        print("6 - Lista de Favoritos")
-        print("7 - Sugestão de Receita Aleatória")
-        print("8 - Pesquisar por Ingredientes")
-        print("9 - Sair")
-
-        opcao = input("Digite o número da opção desejada: ")
+        opcao = print("""Escolha uma opção:
+1 - Adicionar Receita
+2 - Visualizar Receitas
+3 - Atualizar Receitas
+4 - Excluir Receitas
+5 - Filtrar por País
+6 - Lista de Favoritos
+7 - Sugestão de Receita Aleatória
+8 - Pesquisar por Ingredientes
+9 - Sair
+Digite o número da opção desejada:""")
 
         if opcao == '1':
             adicionar_receita()
@@ -64,4 +63,4 @@ def main():
             print("Opção inválida. Digite um número de 1 a 9.")
 
 main()
-print('teste')
+print('aaaaaa')
