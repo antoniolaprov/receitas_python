@@ -1,6 +1,11 @@
 def funcao(opcao):
     if opcao == 'm':
-        print("ir para 'mostrar'")
+        funcionalidade = input("""
+como deseja ver as receitas?
+tudo
+por país
+favoritos
+aleatório""")
 
     elif opcao == 'a':
         print("ir para 'alterar'")    
