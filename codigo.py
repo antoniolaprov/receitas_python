@@ -1,11 +1,18 @@
+def titulo_cardapio(txt):
+    print(('-'*30))
+    print(txt)
+    print(('-'*30))
+
+
 def adicionar_receita():
     print("Opção 1 - Adicionar Receita")
 
 def visualizar_receitas():
     print("Opção 2 - Visualizar Receitas")
 
+
 def atualizar_receitas():
-    print("Opção 3 - Atualizar Receitas")
+    print("Opção 3 - Atualizar receitas")
 
 def excluir_receitas():
     print("Opção 4 - Excluir Receitas")
@@ -28,8 +35,10 @@ def sair():
     exit()
 
 def main():
+    titulo_cardapio("CARDAPIO DE RECEITAS")
+
     while True:
-        opcao = print("""Escolha uma opção:
+        print("""Escolha uma opção:
 1 - Adicionar Receita
 2 - Visualizar Receitas
 3 - Atualizar Receitas
@@ -40,6 +49,8 @@ def main():
 8 - Pesquisar por Ingredientes
 9 - Sair
 Digite o número da opção desejada:""")
+        
+        opcao = input()  
 
         if opcao == '1':
             adicionar_receita()
@@ -63,4 +74,3 @@ Digite o número da opção desejada:""")
             print("Opção inválida. Digite um número de 1 a 9.")
 
 main()
-print('aaaaaa')
