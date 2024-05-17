@@ -16,14 +16,17 @@ Como deseja ver as receitas?
 """ )
         if funcionalidade_exibir == "1":
             print(f"{novareceita}")
+            return receita
         elif funcionalidade_exibir == "2":
             print(f"{pais},{nome}")
+            return
         elif funcionalidade_exibir == "3":
             print("'Exibir Favoritos' ainda não implementada.")
         elif funcionalidade_exibir == "4":
             print(" 'Exibir Aleatório' ainda não implementada.")
         else:
             print("Opção inválida.")
+    
     elif opcao == 'A' or opcao == "a":
         funcionalidade_alterar = input("""
 Como deseja deseja alterar uma receita?
