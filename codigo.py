@@ -1,6 +1,12 @@
+def titulo():
+    print('='*30)
+    print("MANUAL DE RECEITAS")
+    print('='*30)
+
+
 def funcao(opcao):
     if opcao == 'E' or opcao == 'e':
-        funcionalidade = input("""
+        funcionalidade = input("""                            
 Como deseja ver as receitas?
 [1] Tudo 
 [2] Por país 
@@ -25,6 +31,9 @@ Como deseja deseja alterar uma receita?
         elif funcionalidade == "3":
             receita = input("Digite a receita que irá ser editada: ")
             return receita
+
+
+titulo()
 while True:
     opcao = input("""
 Exibir -------> E
