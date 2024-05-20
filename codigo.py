@@ -18,6 +18,7 @@ Como deseja ver as receitas?
         if funcionalidade_exibir == "1":
             file = open("tudo.txt", "r")
             print(file.read())
+            file.close()
             return
         
         elif funcionalidade_exibir == "2":
@@ -46,6 +47,7 @@ Como deseja ver as receitas?
             aleatorio = random.randint(0, len(ret)-1)
             
             print(ret[aleatorio])
+            file.close()
             return
         
         else:

@@ -1,12 +1,12 @@
 import random
 
-def exibir_tudo():
+def exebir_tudo():
     file = open("tudo.txt", "r")
     print(file.read())
     file.close()
     return
 
-def exibir_por_pais():
+def exebir_por_pais():
     pais = input("digite o pais do qual deseja ver as receitas: ")
             
     file = open("tudo.txt", "r")
@@ -16,24 +16,14 @@ def exibir_por_pais():
             print(linha)
     file.close()        
     return
-def exibir_ingrediente():
-    ingrediente = input("Digite o ingrediente do qual deseja ver as receitas: ")
 
-    file = open("tudo.txt", "r")
-
-    for linha in file:
-        if (ingrediente) in linha:
-            print(linha)
-    file.close()
-    return
-
-def exibir_favoritos():
+def exebir_favoritos():
     file = open("favoritos.txt", "r")
     print(file.read())
     file.close()
     return
 
-def exibir_aleatorio():
+def exebir_aleatorio():
     file = open("tudo.txt", "r")
             
     ret = []
@@ -89,7 +79,7 @@ def alterar_remover():
             
     file_remover = open("tudo.txt", "w")
     for linha in linhas:
-        if f"|{receita}|" not in linha:
+        if f";{receita};" not in linha:
             file_remover.write(linha)
 
     file_remover.close()
@@ -117,27 +107,25 @@ Digite a funcionalidade desejada: """)
     
     if opcao == "E" or opcao == "e":
         funcionalidade_exibir = input("""                            
-Como deseja exibir as receitas?
+Como deseja exebir as receitas?
 [1] Tudo 
 [2] Por país 
 [3] Favoritos 
 [4] Aleatório
-[5] Por ingrediente
 [X] Voltar
 """)
         if funcionalidade_exibir == "1":
-            exibir_tudo()
+            exebir_tudo()
 
         elif funcionalidade_exibir == "2":
-            exibir_por_pais()
+            exebir_por_pais()
 
         elif funcionalidade_exibir == "3":
-            exibir_favoritos()  
+            exebir_favoritos()  
 
         elif funcionalidade_exibir == "4":
-            exibir_aleatorio()
-        elif funcionalidade_exibir == "5":
-            exibir_ingrediente()
+            exebir_aleatorio()
+
         elif funcionalidade_exibir == "X" or funcionalidade_exibir == "x":
             print("========================================================")        
 
@@ -164,4 +152,3 @@ Como deseja deseja alterar uma receita?
     else:
         print("opção inválida")
             
-           
