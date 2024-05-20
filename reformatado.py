@@ -1,12 +1,12 @@
 import random
 
-def exebir_tudo():
+def exibir_tudo():
     file = open("tudo.txt", "r")
     print(file.read())
     file.close()
     return
 
-def exebir_por_pais():
+def exibir_por_pais():
     pais = input("digite o pais do qual deseja ver as receitas: ")
             
     file = open("tudo.txt", "r")
@@ -17,13 +17,23 @@ def exebir_por_pais():
     file.close()        
     return
 
-def exebir_favoritos():
+def exibir_favoritos():
     file = open("favoritos.txt", "r")
     print(file.read())
     file.close()
     return
+def exibir_ingrediente():
+    ingrediente = input("Digite o ingrediente do qual deseja ver as receitas: ")
 
-def exebir_aleatorio():
+    file = open("tudo.txt", "r")
+
+    for linha in file:
+        if (ingrediente) in linha:
+            print(linha)
+    file.close()
+    return
+
+def exibir_aleatorio():
     file = open("tudo.txt", "r")
             
     ret = []
@@ -112,20 +122,22 @@ Como deseja exebir as receitas?
 [2] Por país 
 [3] Favoritos 
 [4] Aleatório
+[5] Por ingrediente
 [X] Voltar
 """)
         if funcionalidade_exibir == "1":
-            exebir_tudo()
+            exibir_tudo()
 
         elif funcionalidade_exibir == "2":
-            exebir_por_pais()
+            exibir_por_pais()
 
         elif funcionalidade_exibir == "3":
-            exebir_favoritos()  
+            exibir_favoritos()  
 
         elif funcionalidade_exibir == "4":
-            exebir_aleatorio()
-
+            exibir_aleatorio()
+        elif funcionalidade_exibir == "5":
+            exibir_ingrediente()
         elif funcionalidade_exibir == "X" or funcionalidade_exibir == "x":
             print("========================================================")        
 
