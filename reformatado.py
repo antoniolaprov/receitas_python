@@ -105,8 +105,52 @@ def alterar_remover():
             
     file_remover.close()                         
     return
+def alterar_editar():
+    receita = input("Digite qual receita será editada. ")
+    file = open("tudo.txt", "r")
+    file_ler = file.readlines()
+    for linha in file:
+        if (f"|{receita}|") in linha:
+            linha_separada = linha.strip().split("|")
+            pais = input("Digite o novo nome do país da receita: ")            
+            nome = input("Digite o novo nome da receita: ")
+            preparo = input("Digite o novo preparo e os ingredientes da receita: ")
+    file.close()
 
-  
+    file_editar = open("tudo.txt", "w")
+    if pais != "":
+        linha_separada[0] == pais
+    if nome != "":
+        linha_separada[1] == nome
+    if preparo != "":
+        linha_separada[2] == preparo
+
+    for linha in file_ler:
+        if (f"|{receita}|") not in linha:
+            file_editar.write()
+    
+    nova_linha = (f"{linha_separada[0]}|{linha_separada[1]}|{linha_separada[2]}")
+    file_editar.write(nova_linha)
+    file_editar.close()
+    
+    file_favoritos = open("favoritos.txt", "r")
+    linhas = file_favoritos.readlines()
+    file_favoritos.close()
+
+    file = open("favoritos.txt", "w")
+    for linha in linhas:
+        if (f"|{receita}|") not in linha:
+            file.write(linha)
+    favorito = input("""
+Deseja adicionar a nova receita aos favoritos? 
+[1] Sim
+[2] Não
+""")
+    if favorito == "1": 
+        file.write(nova_linha)
+    elif favorito == "2":
+        print("========================================================")
+
 while True:
     opcao = input("""
 Exibir -------> E
@@ -154,6 +198,8 @@ Como deseja deseja alterar uma receita?
 
         elif funcionalidade_alterar == "2":
             alterar_remover()
+        elif funcionalidade_alterar == "3":
+            alterar_editar()
 
         elif funcionalidade_alterar == "X" or funcionalidade_alterar == "x":
             print("========================================================")        
@@ -163,4 +209,3 @@ Como deseja deseja alterar uma receita?
 
     else:
         print("opção inválida")
-            
