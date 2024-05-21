@@ -92,7 +92,7 @@ deseja adicionar a receita aos favoritos?
             
             file_remover = open("tudo.txt", "w")
             for linha in linhas:
-                if f";{receita};" not in linha:
+                if f"|{receita}|" not in linha:
                     file_remover.write(linha)
 
             file_remover.close()

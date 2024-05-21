@@ -88,20 +88,36 @@ def alterar_remover():
     file.close()
             
     file_remover = open("tudo.txt", "w")
-    for linha in linhas:
-        if f";{receita};" not in linha:
-            file_remover.write(linha)
+    if f"|{receita}|" in linhas:
+        for linha in linhas:
+            if f"|{receita}|" not in linha:
+                file_remover.write(linha)
 
-    file_remover.close()
+        file_remover.close()
 
-    file = open("favoritos.txt", "r")
-    linhas = file.readlines()
-    file.close()
+        file = open("favoritos.txt", "r")
+        linhas = file.readlines()
+        file.close()
 
-    file_remover = open("favoritos.txt", "w")
-    for linha in linhas:
-        if receita not in linha:
-            file_remover.write(linha)
+        file_remover = open("favoritos.txt", "w")
+        for linha in linhas:
+            if f"|{receita}|" not in linha:
+                file_remover.write(linha)
+
+    else:
+        print("receita não encontrada")
+
+    continuar = input("""
+deseja continuar removendo?
+[1] sim
+[2] nao
+""")
+    
+    if continuar == "1":
+        alterar_remover()
+
+    elif continuar == "2":
+        print("========================================================")
             
     file_remover.close()                         
     return
@@ -168,7 +184,7 @@ Digite a funcionalidade desejada: """)
     
     if opcao == "E" or opcao == "e":
         funcionalidade_exibir = input("""                            
-Como deseja exebir as receitas?
+Como deseja exibir as receitas?
 [1] Tudo 
 [2] Por país 
 [3] Favoritos 
@@ -200,6 +216,7 @@ Como deseja deseja alterar uma receita?
 [3] Editar
 [X] Voltar
 """ )
+        
         if funcionalidade_alterar == "1":
             alterar_adicionar()
 
