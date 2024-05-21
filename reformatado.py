@@ -106,50 +106,57 @@ def alterar_remover():
     file_remover.close()                         
     return
 def alterar_editar():
-    receita = input("Digite qual receita será editada. ")
+    receita = input("Digite qual receita será editada: ")
     file = open("tudo.txt", "r")
     file_ler = file.readlines()
-    for linha in file:
-        if (f"|{receita}|") in linha:
-            linha_separada = linha.strip().split("|")
-            pais = input("Digite o novo nome do país da receita: ")            
-            nome = input("Digite o novo nome da receita: ")
-            preparo = input("Digite o novo preparo e os ingredientes da receita: ")
     file.close()
 
-    file_editar = open("tudo.txt", "w")
-    if pais != "":
-        linha_separada[0] == pais
-    if nome != "":
-        linha_separada[1] == nome
-    if preparo != "":
-        linha_separada[2] == preparo
-
+    linha_separada = None
     for linha in file_ler:
-        if (f"|{receita}|") not in linha:
-            file_editar.write()
-    
-    nova_linha = (f"{linha_separada[0]}|{linha_separada[1]}|{linha_separada[2]}")
-    file_editar.write(nova_linha)
-    file_editar.close()
-    
-    file_favoritos = open("favoritos.txt", "r")
-    linhas = file_favoritos.readlines()
-    file_favoritos.close()
+        if (f"|{receita}|") in linha:
+            linha_separada = linha.strip().split("|")
+            pais = input("Digite o novo nome do país da receita: ")
+            nome = input("Digite o novo nome da receita: ")
+            preparo = input("Digite o novo preparo e os ingredientes da receita: ")
+            if pais:
+                linha_separada[0] = pais
+            if nome:
+                linha_separada[1] = nome
+            if preparo:
+                linha_separada[2] = preparo
+            break  # Encerra o loop após encontrar e editar a receita
 
-    file = open("favoritos.txt", "w")
-    for linha in linhas:
-        if (f"|{receita}|") not in linha:
-            file.write(linha)
-    favorito = input("""
+    if linha_separada:
+        nova_linha = f"{linha_separada[0]}|{linha_separada[1]}|{linha_separada[2]}\n"
+
+        file_editar = open("tudo.txt", "w")
+        for linha in file_ler:
+            if (f"|{receita}|") not in linha:
+                file_editar.write(linha)
+        file_editar.write(nova_linha)
+        file_editar.close()
+
+        file_favoritos = open("favoritos.txt", "r")
+        linhas = file_favoritos.readlines()
+        file_favoritos.close()
+
+        file = open("favoritos.txt", "w")
+        for linha in linhas:
+            if (f"|{receita}|") not in linha:
+                file.write(linha)
+
+        favorito = input("""
 Deseja adicionar a nova receita aos favoritos? 
 [1] Sim
 [2] Não
 """)
-    if favorito == "1": 
-        file.write(nova_linha)
-    elif favorito == "2":
+        if favorito == "1":
+            file.write(nova_linha)
+        file.close()
+
         print("========================================================")
+    else:
+        print("Receita não encontrada.")
 
 while True:
     opcao = input("""
